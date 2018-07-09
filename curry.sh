@@ -7,11 +7,11 @@ trap "rm -rf $response" EXIT INT TERM
 start_server() {
 local port=${1:-8080}
 while true; do
-cat $response | nc -l $port > >(parse_request) || break;
+cat $response | nc -l $port > >(handler_request) || break;
 done
 }
 
-parse_request() {
+handler_request() {
 read request
 echo "$request"
 local service_name=$(echo "$request" | cut -d ' ' -f2)
