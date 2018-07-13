@@ -11,6 +11,9 @@ run the script curry.sh :
 
 run the script auto_login.sh
 
-1.run ./auto_login.sh and input yout username and password
+1.install sshpass
+ubuntu apt-get install sshpass
+
+2.run ./auto_login.sh and input yout username and password
 and it will copy the public_key to the servers which been defined in servers.list 
 and you will login the servers without input username and password
