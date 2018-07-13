@@ -13,8 +13,10 @@ fi
 while read ip;
 do 
  (
- ssh $username@$ip "cat >> /$username/.ssh/authorized_keys" < /$username/.ssh/id_rsa.pub ;
- if [ $? -eq 0 ];
+
+sshpass -p $password  ssh -o StrictHostKeyChecking=no $username@$ip "cat >> /$username/.ssh/authorized_keys" < /$username/.ssh/id_rsa.pub ;
+#echo -e "${password}\n" | ssh-copy-id -f $username@$ip ;
+if [ $? -eq 0 ];
  then 
   echo "the server $ip set successful ."
  else
