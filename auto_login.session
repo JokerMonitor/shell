@@ -1,0 +1,12 @@
+Script started on Sat 14 Jul 2018 10:03:19 AM CST
+root@ubuntu:~/shell/curry/shell# ./auto_login.sh 
+please input your username:root
+please input your password:the key is already
+the server 10.0.2.4 set successful .
+the server 10.0.2.5 set successful .
+the server 10.0.2.6 set successful .
+the server 10.0.2.7 set successful .
+root@ubuntu:~/shell/curry/shell# exit
+exit
+
+Script done on Sat 14 Jul 2018 10:03:37 AM CST
