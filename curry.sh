@@ -41,8 +41,8 @@ if [ "$service_name" == "/server_info" ]; then
      df >> $template
     echo "----------- the system run time ------------ " >> $template
      uptime | sed 's/.*up \(.*\),.*users.*/\1/' >> $template
-   # echo "------------ cpu usage info -------------" >> $template
-   #  ps -eocomm,pcpu | egrep -v '(0.0)|(0,0)|(%CPU)' | sort -nrk 2 | echo >> $template
+    echo "------------ cpu usage info -------------" >> $template
+    ps -eocomm,pcpu | egrep -v '(0.0)|(0,0)|(%CPU)' | sort -nrk 2 >> $template
     echo "------------ network info ---------------" >> $template
      ifconfig | cut -c-10 | tr -d ' ' | tr -s '\n' >> $port_info
      ifconfig | grep "inet addr" >> $addr_info
