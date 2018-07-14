@@ -11,6 +11,23 @@ cat $response | nc -l $port > >(handler_request) || break;
 done
 }
 
+servers_active() {
+while read ip;
+do 
+     ( 
+        ping $ip -c 3 &> /dev/null ;
+        if [ $? -eq 0 ] ;
+         then 
+          echo $ip is alive
+         else
+          echo $ip is down
+        fi
+           
+     )&
+     done < servers.list
+     wait
+}
+
 handler_request() {
 read request
 echo "$request"
@@ -39,25 +56,6 @@ if [ "$service_name" == "/server_info" ]; then
 else
   echo "service not found " > $response
 fi
-}
-servers_active_fping() {
-  fping -a < servers.list
-}
-servers_active() {
-while read ip;
-do 
-     ( 
-        ping $ip -c 3 &> /dev/null ;
-        if [ $? -eq 0 ] ;
-         then 
-          echo $ip is alive
-         else
-          echo $ip is down
-        fi
-           
-     )&
-     done < servers.list
-     wait
 }
 
 start_server $1
