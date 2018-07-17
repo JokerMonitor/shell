@@ -44,8 +44,9 @@ if [ "$service_name" == "/server_info" ]; then
     echo "------------ cpu usage info -------------" >> $template
     ps -eocomm,pcpu | egrep -v '(0.0)|(0,0)|(%CPU)' | sort -nrk 2 >> $template
     echo "------------ network info ---------------" >> $template
-     ifconfig | cut -c-10 | tr -d ' ' | tr -s '\n' >> $port_info
-     ifconfig | grep "inet addr" >> $addr_info
+     #ifconfig | cut -c-10 | tr -d ' ' | tr -s '\n' >> $port_info
+     ip addr | egrep "^[0-9]*:" | cut -d ':' -f2 >> $port_info
+     ip addr | grep "inet " >> $addr_info
      paste $port_info $addr_info -d " " | tr -s " " >> $template
      rm $port_info $addr_info
     echo "---------- servers active info ------------" >> $template
