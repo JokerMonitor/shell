@@ -1,0 +1,9 @@
+DATE     IP ADDR        DEVICE    CAPACITY USED   FREE   PERCENT
+07/22/18 10.0.2.4       /dev/mapper/ubuntu--vg-root 8.9G     5.2G   3.4G   61%     
+07/22/18 10.0.2.4       /dev/sda1 495M     112M   358M   24%     
+07/22/18 10.0.2.5       /dev/mapper/ubuntu--vg-root 8.9G     4.6G   3.9G   55%     
+07/22/18 10.0.2.5       /dev/sda1 495M     112M   358M   24%     
+07/22/18 10.0.2.6       /dev/mapper/ubuntu--vg-root 8.9G     4.0G   4.5G   48%     
+07/22/18 10.0.2.6       /dev/sda1 495M     112M   358M   24%     
+07/22/18 10.0.2.7       /dev/mapper/ubuntu--vg-root 8.9G     4.0G   4.6G   47%     
+07/22/18 10.0.2.7       /dev/sda1 495M     112M   358M   24%     

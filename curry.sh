@@ -3,6 +3,7 @@ response="/tmp/response-$RANDOM.pipe"
 template=template.txt
 touch $template
 mkfifo $response > /dev/null 2>&1
+#touch $response
 trap "rm -rf $response $template" EXIT INT TERM
 start_server() {
 local port=${1:-8080}
